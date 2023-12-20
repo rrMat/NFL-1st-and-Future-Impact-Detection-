@@ -22,7 +22,7 @@ The data was pre-processed by:
 
 ## Contact Boxes
 
-![Contact Boxes](./images/Contact Boxes.png)
+![Contact Boxes](./images/Contact_Boxes.png)
 
 ## Masking
 
