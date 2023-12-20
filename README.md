@@ -41,7 +41,7 @@ To manage memory efficiently, we have:
 
 ## Networks
 
-### ForkNet SIML I
+### ForkNet SIML (Single Image Multi Label)
 
 This network classifies portions of the input images. For each image, there are many regions to be classified. These regions are defined by overlapping bounding boxes.
 
@@ -53,7 +53,7 @@ The following image depicts the network as a whole:
 
 *Insert image here*
 
-### ForkNet SISL
+### ForkNet SISL (Single Image Single Label)
 
 The input for this network is:
 
