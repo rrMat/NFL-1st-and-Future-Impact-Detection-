@@ -74,4 +74,4 @@ The following image depicts the network as a whole:
 
 The following table presents the results:
 
-*Insert image here*
+![Table of Results](./images/Table_of_results.png)
