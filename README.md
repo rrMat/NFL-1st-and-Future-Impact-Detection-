@@ -22,8 +22,8 @@ We've pre-processed the data to ensure its relevance and accuracy. This involved
 
 ## Contact Boxes
 In order to detect the presence of a contact between two players we will have to focus on the portion of the image interested by the contact. We can find it by using the information of the bounding boxes and making the following assumptions:
-  -The contacts will likely happen in the space between the two players, i.e. in the space bewteen the helmets.
-  -In football the contact often happens between hands vs shoulders or hand vs chest. For this reason we need to consider also the region below the helmets.
+- The contacts will likely happen in the space between the two players, i.e. in the space bewteen the helmets.
+- In football the contact often happens between hands vs shoulders or hand vs chest. For this reason we need to consider also the region below the helmets.
 Therefore we calculate the region between the helmets by merging the boxes of the helmets.
 
 ![Contact Boxes](./images/Contact_Boxes.png)
