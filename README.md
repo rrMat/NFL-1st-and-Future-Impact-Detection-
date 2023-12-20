@@ -22,7 +22,7 @@ The data was pre-processed by:
 
 ## Contact Boxes
 
-*Add contact boxes image here*
+![Contact Boxes](./images/Contact Boxes.png)
 
 ## Masking
 
@@ -47,11 +47,11 @@ This network classifies portions of the input images. For each image, there are 
 
 The input is as follows:
 
-*Insert image here*
+![SIML Input](./images/Siml_input.png)
 
 The following image depicts the network as a whole:
 
-*Insert image here*
+![SIML Input](./images/Siml_architechture.png)
 
 ### ForkNet SISL (Single Image Single Label)
 
@@ -60,7 +60,7 @@ The input for this network is:
 - 128x128 cropped input image (Sideline and Endzone)
 - 128x128 contact box binary image (Sideline and Endzone)
 
-*Insert images here*
+![SIML Input](./images/Siml_input.png)
 
 The following image depicts the network as a whole:
 
