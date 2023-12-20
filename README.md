@@ -60,11 +60,15 @@ The input for this network is:
 - 128x128 cropped input image (Sideline and Endzone)
 - 128x128 contact box binary image (Sideline and Endzone)
 
-![SIML Input](./images/Siml_input.png)
+![SISL Input](./images/SISL_input.png)
+
+Here is how the mask works:
+
+![SISL Maks](./images/Sisl_mask.png)
 
 The following image depicts the network as a whole:
 
-*Insert image here*
+![SISL Architechture](./images/Sisl_architechture.png)
 
 ## Results
 
