@@ -1,5 +1,5 @@
 # NFL Player Contact Detection
-This project was done as an assignment for the Machine Learning for Computer Vision course of the University of Bologna, we decided to pick a Kaggle [competition]([https://www.kaggle.com/competitions/birdclef-2023/overview](https://www.kaggle.com/competitions/nfl-player-contact-detection/overview)) and work on it.
+This project was done as an assignment for the Machine Learning for Computer Vision course of the University of Bologna, we decided to pick a Kaggle [competition][https://www.kaggle.com/competitions/birdclef-2023/overview](https://www.kaggle.com/competitions/nfl-player-contact-detection/overview) and work on it.
 The aim is to detect contacts between players during NFL games. We utilize both tracking data and video feeds to achieve this. To simplify the problem we've excluded contacts involving players not visible on camera and contacts with the ground.
 Below you can find a summary of the project, which includes the main objectives, methods and results. For more details, you can check out the notebooks that contain the code and analysis.
 
