@@ -50,13 +50,32 @@ To ensure efficient memory usage, we've implemented the following measures:
 
 ### ForkNet SIML (Single Image Multi Label)
 
-This network is designed to classify different regions within the input images. Each image contains multiple regions defined by overlapping bounding boxes.
+ForkNet SIML is a network designed to classify multiple regions within each input image. Each image contains several regions, defined by potentially overlapping bounding boxes.
 
-The input is as follows:
+While this task is not strictly object detection, it shares several characteristics with it:
+
+- The goal is not to classify the entire image, but specific portions of it.
+- Each image contains multiple regions (approximately 10 on average) that need to be classified.
+- The regions of interest are defined by bounding boxes, which can overlap.
+
+However, there are key differences compared to a traditional object detection problem. For instance, we already have the contact boxes, eliminating the need for a Region Proposal Network. Additionally, our task is not to classify objects, but to detect whether a contact has occurred.
+
+Given these considerations, we chose to use a network inspired by Fast R-CNN with a ResNet50 backbone due to its proven effectiveness in similar tasks.
+Each frame is processed by a feature extractor made of the first 3 freezed layers of ResNet50. The feature extractor produces a feature map that, together with the contact boxes, is processed by our OneViewNetwork. This net takes the contact boxes and maps them onto the feature map (roi-pooling). The output of this operation is then processed by the PerRegionNetwork which decides whether a contact took place or not.
+
+As explained before, to mantain dimensional consistency in every batch, each example consists of all the 231 combinations of players. We use the mask to perform roi-pooling and detection only to the non-masked regions (related to visible and close players). Therefore, the output of the OneViewNetwork will be a vector of lenght 231 having zero value for masked regions and the logits outputted by the PerRegionNetwork for all the other players. Note that also in the computation of the loss the output of the masked regions is ignored.
+
+Another complication intrinsic in this task is that we have the information related to two cameras, Sideline and Endzone. We decided to work at increasing levels of complexity.
+
+Firstly, we processed the inputs using just one of the views to set up a network baseline and to compare the informative power of the two views.
+Secondly, we tried to merge the outputs of the OneViewNetwork with a linear layer. In this second version the networks (OneView- and PerRegion-Network) of both views shared the same parameters.
+Finally, we instantiated different networks for each view.
+
+The input/ouutput structure of the network:
 
 ![SIML Input](./images/Siml_input.png)
 
-The image below provides an overview of the network architecture:
+Below an overview of the network architecture:
 
 ![SIML Input](./images/Siml_architechture.png)
 
