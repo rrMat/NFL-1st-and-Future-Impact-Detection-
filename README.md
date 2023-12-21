@@ -81,18 +81,30 @@ Below an overview of the network architecture:
 
 ### ForkNet SISL (Single Image Single Label)
 
-This network takes the following as input:
+The model proposed is a wide readaptation of the ResNet50. In this case each contact is examinated separately with a single image in input and a single classification value as output.
 
-- A 128x128 cropped input image (Sideline and Endzone)
-- A 128x128 binary image of the contact box (Sideline and Endzone)
+In particular each input consists of two 128x128 images:
 
-![SISL Input](./images/SISL_input.png)
+- The first one is a cropping from the original frame of the contact that has to be analyzed (the image is centered at the center of the unified bounding box).
+- The second one is a binary mask where only the pixels inside the contact box are set to one, otherwise is zero. The process is repeated for both the sideline and the enzone
 
-The following image illustrates how the mask works:
+![SISL Maks](./images/Sisl_mask.png "SISL Mask")
 
-![SISL Maks](./images/Sisl_mask.png)
+Each couple of inputs (image and mask) is passed to the same specular path:
 
-The image below provides an overview of the network architecture:
+- The two images are concatenated and passed throught a (1x1) Conv2D layer to broadcast the input shape from (BATCH, 4, 128,128) to (BATCH, 3, 128, 128) which is the shape accepted from the ResNet
+
+- The obtained tensor is passed throught the first three layers of the resnet
+
+- The two tensors coming out from the first three layers of the ResNet (one for the sideline and one for the endzone) are concatenated and again passed throught a (1x1) Conv2D layer to restore the shape needed.
+
+- All the three tensors (sideline, Endzone, concatenated) are passed to the last layer of the ResNet
+
+- A last fully connected layer is used for the classification
+
+- This output is the concatenated with the distance value and passed to a last Fully Connected layer producing the final output
+
+Below an overview of the network architecture:
 
 ![SISL Architechture](./images/Sisl_architechture.png)
 
