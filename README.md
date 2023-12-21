@@ -3,6 +3,8 @@ This project was done as an assignment for the Machine Learning for Computer Vis
 The aim is to detect contacts between players during NFL games. We utilize both tracking data and video feeds to achieve this. To simplify the problem we've excluded contacts involving players not visible on camera and contacts with the ground.
 Below you can find a summary of the project, which includes the main objectives, methods and results. For more details, you can check out the notebooks that contain the code and analysis.
 
+On this project have worked: [Giacomo Melacini](https://github.com/Chavelanda), [Lorenzo Tribuiani](https://github.com/LorenzoTribuiani98) and me.
+
 ## Data
 
 The following data sources were avaiable:
