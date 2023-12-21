@@ -75,8 +75,6 @@ The input/ouutput structure of the network:
 
 ![SIML Input](./images/Siml_input.png)
 
-Below an overview of the network architecture:
-
 ![SIML Input](./images/Siml_architechture.png)
 
 ### ForkNet SISL (Single Image Single Label)
@@ -103,8 +101,6 @@ Each couple of inputs (image and mask) is passed to the same specular path:
 - A last fully connected layer is used for the classification
 
 - This output is the concatenated with the distance value and passed to a last Fully Connected layer producing the final output
-
-Below an overview of the network architecture:
 
 ![SISL Architechture](./images/Sisl_architechture.png)
 
